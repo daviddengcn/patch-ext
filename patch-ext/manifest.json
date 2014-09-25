@@ -1,0 +1,25 @@
+{
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDesc__",
+    "default_locale": "en",
+    "content_scripts": [
+        {
+            "matches": ["https://issues.apache.org/jira/secure/attachment/*/*.patch"],
+            "css": ["cs.css"],
+            "js": ["cs.js"],
+            "all_frames": true
+        }
+    ],
+    "permissions": [
+        "https://issues.apache.org/jira/secure/attachment/*/*.patch",
+        "tabs"
+    ],
+    "icons": {
+        "48":"patch-ext-48x48.png"
+    },
+    "browser_action": {
+        "default_icon": "patch-ext-48x48.png"
+    },
+    "version": "1.0",
+    "manifest_version": 2
+}

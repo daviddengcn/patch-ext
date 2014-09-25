@@ -1,0 +1,59 @@
+span.plus {
+	background: #afa;
+}
+
+span.minus {
+  background: #faa;
+}
+
+div.plus {
+	background: #afa;
+}
+
+table {
+	white-space: pre-wrap;
+	border-collapse: collapse;
+	border: 1px solid #BFCFDA;
+	font: 10px "Menlo", "Consolas", "Monaco", monospace;
+}
+
+tr.linenums {
+	background: #F8F9FC;
+}
+
+tr.linenums td {
+	font-size: 12px;
+	font-family: "Helvetica Neue","Arial",sans-serif;
+	white-space: normal;
+	padding: 12px 1px 12px 10px;
+}
+
+tr.filestart td {
+  border-top: 1px solid #BFCFDA;
+	padding: 20px 1px 12px 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+tr.rawline td {
+	padding: 1px 1px 1px 10px;
+}
+
+td.linenum {
+	text-align: right;
+	color: #6B748C;
+	background: #F8F9FC;
+	border: 0px 1px 0px 0px;
+	border-right: 1px solid #DDE8EF;
+	width: 3em;
+	font-size: 11px;
+	padding: 2px 6px 0px 0px;
+}
+
+td.minusline {
+	background: #ffd0d0;
+}
+
+td.plusline {
+	background: #d0ffd0;
+}

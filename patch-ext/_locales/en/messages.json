@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Git Patch Viewer",
+    "description": "Git Patch Viewer"
+  },
+  "appDesc": {
+    "message": "Git Patch Viewer.", 
+    "description":"Git Patch Viewer."
+  }
+}
