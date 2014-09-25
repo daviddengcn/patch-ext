@@ -1,3 +1,7 @@
+body {
+	background: #ebecee;
+}
+
 span.plus {
 	background: #afa;
 }
@@ -11,14 +15,21 @@ div.plus {
 }
 
 table {
+	width: 1602px;
+	background: white;
+	margin: 16px 16px 0px 16px;
 	white-space: pre-wrap;
 	border-collapse: collapse;
 	border: 1px solid #BFCFDA;
+  border-bottom: 1px solid #8C98B8;
 	font: 10px "Menlo", "Consolas", "Monaco", monospace;
 }
 
 tr.linenums {
+	color: #6B748C;
 	background: #F8F9FC;
+	border-top: 1px solid #DDE8EF;
+	border-bottom: 1px solid #DDE8EF;
 }
 
 tr.linenums td {
@@ -35,6 +46,23 @@ tr.filestart td {
 	font-weight: bold;
 }
 
+tr.subject {
+	border-bottom: 1px solid #c0c5d1;
+}
+
+tr.subject td {
+	color: #6B748C;
+	padding: 12px 5px 12px 12px;
+	background: #e0e3ec;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.231;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAALuCAYAAACJsbezAAACBUlEQVRo3u1ZQU7DMBBct65U+gEQCD7AA3gEB+AIEs/hF7wHeARHDly4FOUS4V1uVbMbOnGaNKHd3DKaGa+9trN2wsnZhRAREQmFECjO53Naf2KczaoAs1QBEdYM1gwl4ZSgRAEpaQYbDwUkY5pQpCzaNHFupLj7ohmT6XT1EqjmCcen5xWTeLRYVD2mMepWRpsoLdGM0SbKMG5u7x5p0xM+Pr9kPasTneIopEzVeyOGCZ1M9kl7CPKApjUelG3aIHTJDx3FQZTtQZTNYBYK4c91TRSunl4EdA6Oes14cB8MBsujgQdclS0kODAsIYam0kFvafvMaWCip5QDDnQM2G1ruVyupqGIUCyKYrOH2WBxs71I9pqxG8lY4jis3u41oxeJ3bauny8ls062hyKCxyZB3/1kDiPQo4aRchkJSmoYDBk/MHQTh4mUNINyGclOB2gKJbpZrwwc2H21JWqLiWVZ9r+ftgBG+ykYS+U4kGSg6eDAQW9bbw/3knulhgvn7NK6gYQ7aAV7cP5laC+mvXh0wfC7LQeG37beX0nQmVADDAFzsoASxh5pe1MLpGyJdOBhJC1CbzOE+ZmD2fcl5sAIDonfRfk/DgG4LqyR2Nohu7YkgYGhP+9W0kHobXorsNkOJF30tq4VyZTgGdRmFuYPkAMOOOCAAw444IADDjjgwCAXAL9n9civclBnhwAAAABJRU5ErkJggg==);
+	background-repeat: repeat-x;
+	background-position: 0px -509px;
+}
+
 tr.rawline td {
 	padding: 1px 1px 1px 10px;
 }
@@ -45,7 +73,7 @@ td.linenum {
 	background: #F8F9FC;
 	border: 0px 1px 0px 0px;
 	border-right: 1px solid #DDE8EF;
-	width: 3em;
+	width: 45px;
 	font-size: 11px;
 	padding: 2px 6px 0px 0px;
 }
@@ -56,4 +84,25 @@ td.minusline {
 
 td.plusline {
 	background: #d0ffd0;
+}
+
+
+div.filelinks {
+	width: 1600px;
+	background: white;
+	margin: 16px 16px 0px 16px;
+	font-size: 12px;
+	color: #92969D;
+  border: 1px solid #BFCFDA;
+  border-bottom: 1px solid #8C98B8;
+}
+
+div.filelinks a {
+	display: block;
+	text-decoration: none;
+	padding: 6px 10px;
+}
+
+div.filelinks a:nth-child(2n) {
+	background: #F7F7F7;
 }

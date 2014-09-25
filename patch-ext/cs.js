@@ -6,6 +6,9 @@
   var outputOneLine = function(out, line, cls) {
   	return out + '<tr class="' + cls + '"><td colspan="4">' + line + '</td></tr>'
   }
+  var outputFileStart = function(out, line, idx) {
+  	return out + '<tr class="filestart"><td colspan="4"><a id="file-' + idx + '"/>' + line + '</td></tr>'
+  }
   
   var outputMinus = function(out, num, line) {
   	return out + '<tr><td class="linenum">' + num + '</td><td class="minusline">' + line + '</td><td class="linenum"></td><td></td></tr>'
@@ -207,6 +210,14 @@
 			}
 		}
 		
+		m = line.match('^Subject: (.+)$')
+		if (m) {
+			return {
+			  tp: 'subject',
+			  subject: m[1]
+			}
+		}
+		
 		return {
 			tp: 'line',
 			line: line
@@ -219,10 +230,12 @@
 		return out
 	}
 
-	var preList = document.getElementsByTagName('pre');
+	var files = []
+	var subject = ''
+	var preList = document.getElementsByTagName('pre')
 	for (var i = 0; i < preList.length; i++) {
 	  var pre = preList[i];
-    var out = '<table>';
+    var out = '';
     var lines = pre.innerHTML.split('\n');
     var buffered = '';
     var ctx = {}
@@ -263,9 +276,15 @@
 					ctx.buffered = ''
         }
       
+      	if (info.tp == 'subject') {
+      		subject = info.subject
+      		continue
+      	}
 				if (info.tp == 'filestart') {
 					ctx = {}
-					out = outputOneLine(out, line, 'filestart')
+					var idx = files.length
+					files.push(line)
+					out = outputFileStart(out, line, idx)
 					continue
 				}
 				if (info.tp == 'line') {
@@ -283,6 +302,9 @@
 					continue
 				}
 				if (info.tp == 'minusfile') {
+				  if (files.length > 0) {
+				  	files[files.length - 1] = info.fn
+				  }
 					ctx.lfn = info.fn
 					continue
 				}
@@ -307,7 +329,15 @@
       out = outputOneLine(out, line, 'rawline')
       console.log(JSON.stringify(info))
     }
-    out += '</table>'
-    pre.innerHTML = out;
+    if (subject) {
+    	out = outputOneLine('', subject, 'subject') + out
+    }
+    out = '<table>' + out + '</table>'
+    var fileLinks = '<div class="filelinks">'
+    for (var j = 0; j < files.length; j++) {
+    	fileLinks += '<a href="#file-' + j + '">' + files[j] + '</a>'
+    }
+    fileLinks += '</div>'
+    pre.innerHTML = fileLinks + out;
 	}
 })()
