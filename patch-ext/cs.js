@@ -308,9 +308,6 @@
       console.log(JSON.stringify(info))
     }
     out += '</table>'
-//		if (buffered) {
-//			out += '<span class="minus">' + line + '</span>\n'
-//		}
     pre.innerHTML = out;
 	}
 })()
