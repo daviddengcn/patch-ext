@@ -160,21 +160,21 @@
 				line: line
 			}
 		}
-		m = line.match('^[+][+][+] (b.+)$')
+		m = line.match('^[+][+][+] (.+)$')
 		if (m) {
 			return {
 				tp: 'plusfile',
 				fn: m[1]
 			}
 		}
-		m = line.match('^--- (a.+)$')
+		m = line.match('^--- (.+)$')
 		if (m) {
 			return {
 				tp: 'minusfile',
 				fn: m[1]
 			}
 		}
-		m = line.match('^@@ -([0-9]+),([0-9]+) [+]([0-9]+),([0-9]+) @@ (.*)$')
+		m = line.match('^@@ -([0-9]+),([0-9]+) [+]([0-9]+),([0-9]+) @@(.*)$')
 		if (m) {
 			return {
 				tp: 'lineinfo',
@@ -247,7 +247,7 @@
       if (info.tp == 'plusline') {
         if (ctx.buffered) {
 					var m = ed(ctx.buffered.line, info.line)
-					if (m.dist < Math.max(ctx.buffered.line.length, info.line.length)/2) {
+					if (ctx.buffered.line.trim() == info.line.trim() || m.dist < Math.max(ctx.buffered.line.length, info.line.length)/2) {
 							out = outputPair(out, ctx.lnum, mark('', ctx.buffered.line, info.line, m.matA, fMinus), ctx.rnum,
 								mark('', info.line, ctx.buffered.line, m.matB, fPlus))
 							ctx.lnum++
@@ -302,9 +302,6 @@
 					continue
 				}
 				if (info.tp == 'minusfile') {
-				  if (files.length > 0) {
-				  	files[files.length - 1] = info.fn
-				  }
 					ctx.lfn = info.fn
 					continue
 				}
@@ -313,6 +310,15 @@
 					continue
 				}
 				if (info.tp == 'lineinfo') {
+				  if (files.length > 0) {
+				  	if (info.lcnt == 0) {
+							files[files.length - 1] = '+ ' + ctx.rfn
+				  	} else if (info.rcnt == 0) {
+							files[files.length - 1] = '- ' + ctx.lfn
+				  	} else {
+							files[files.length - 1] = 'M ' + ctx.lfn
+				  	}
+				  }
 					ctx.lnum = info.lstart
 					ctx.lend = info.lstart + info.lcnt
 					ctx.rnum = info.rstart
