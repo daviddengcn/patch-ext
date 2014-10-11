@@ -1,27 +1,23 @@
 {
-    "name": "__MSG_appName__",
+    "name": "Git Patch Viewer",
     "short_name": "GPV",
-    "description": "__MSG_appDesc__",
-    "default_locale": "en",
-    "content_scripts": [
-        {
-            "matches": [
-            	"https://issues.apache.org/jira/secure/attachment/*/*.patch",
-            	"https://issues.apache.org/jira/secure/attachment/*/*.txt"
-            ],
-            "css": ["cs.css"],
-            "js": ["cs.js"],
-            "all_frames": true
-        }
-    ],
+    "description": "Git Patch Viewer",
     "permissions": [
-        "https://issues.apache.org/jira/secure/attachment/*/*.patch",
-        "https://issues.apache.org/jira/secure/attachment/*/*.txt"
+        "https://*/*",
+        "tabs"
     ],
     "icons": {
         "48":"patch-ext-48x48.png",
         "128":"patch-ext-128x128.png"
     },
-    "version": "1.2",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "browser_action": {
+        "default_icon": "patch-ext-48x48.png"
+    },
+    "version": "1.3",
     "manifest_version": 2
 }

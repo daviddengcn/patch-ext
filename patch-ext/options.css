@@ -1,0 +1,63 @@
+body {
+  font-size: 14px;
+  color: black;
+  background-color: #eee;
+  text-align: center;
+}
+
+#img-logo {
+	width: 32px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+a {
+  color: black;
+  border-bottom:dotted 1px; 
+  text-decoration: none;
+}
+
+section {
+    display: inline-block;
+    width: 800px;
+    text-align: left;
+    background: white;
+}
+
+section h1 {
+    margin: 0px;
+    padding: 40px 0px 30px 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+section article {
+    text-align: left;
+    margin: 10px 10px;
+}
+
+section article.footer {
+    margin-top: 30px;
+    font-size: 75%;
+    text-align: right;
+}
+
+section span.group-label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding: 0px 20px 0px 0px;
+}
+
+section textarea {
+	vertical-align: top;
+	width: 600px;
+	min-height: 200px;
+}
+
+img#logo {
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  margin-top: -90px;
+}
