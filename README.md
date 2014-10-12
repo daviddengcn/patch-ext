@@ -20,4 +20,4 @@ Screenshots
 
 License
 -------
-BSD license
+Apache License V2
