@@ -63,5 +63,15 @@ chrome.tabs.onUpdated.addListener(
 )
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-	doRender(tab.id)
+	chrome.tabs.executeScript(tab.id, {
+		code: "typeof(g_gpv_rendered) == 'undefined'"
+	}, function(res) {
+		if (res[res]) {
+			doRender(tab.id)
+		} else {
+			chrome.tabs.executeScript(tab.id, {
+				code: "document.body.classList.toggle('gvcrendered')"
+			})
+		}
+	})
 })

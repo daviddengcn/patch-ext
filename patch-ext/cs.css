@@ -1,20 +1,36 @@
-body {
+body.gvcrendered {
 	background: #ebecee;
 }
 
-span.plus {
+body div.gvc_block {
+	display: none;
+}
+
+body div.gvc_raw {
+	display: block;
+}
+
+body.gvcrendered div.gvc_block {
+	display: block;
+}
+
+body.gvcrendered div.gvc_raw {
+	display: none;
+}
+
+div.gvc_block span.plus {
 	background: #afa;
 }
 
-span.minus {
+div.gvc_block span.minus {
   background: #faa;
 }
 
-div.plus {
+div.gvc_block div.plus {
 	background: #afa;
 }
 
-table {
+div.gvc_block table {
 	width: 1402px;
 	background: white;
 	margin: 16px 16px 0px 16px;
@@ -25,32 +41,32 @@ table {
 	font: 10px "Menlo", "Consolas", "Monaco", monospace;
 }
 
-tr.linenums {
+div.gvc_block tr.linenums {
 	color: #6B748C;
 	background: #F8F9FC;
 	border-top: 1px solid #DDE8EF;
 	border-bottom: 1px solid #DDE8EF;
 }
 
-tr.linenums td {
+div.gvc_block tr.linenums td {
 	font-size: 12px;
 	font-family: "Helvetica Neue","Arial",sans-serif;
 	white-space: normal;
 	padding: 12px 1px 12px 10px;
 }
 
-tr.filestart td {
+div.gvc_block tr.filestart td {
   border-top: 1px solid #BFCFDA;
 	padding: 20px 1px 12px 10px;
 	font-size: 14px;
 	font-weight: bold;
 }
 
-tr.subject {
+div.gvc_block tr.subject {
 	border-bottom: 1px solid #c0c5d1;
 }
 
-tr.subject td {
+div.gvc_block tr.subject td {
 	color: #6B748C;
 	padding: 12px 5px 12px 12px;
 	background: #e0e3ec;
@@ -63,11 +79,11 @@ tr.subject td {
 	background-position: 0px -509px;
 }
 
-tr.rawline td {
+div.gvc_block tr.rawline td {
 	padding: 1px 1px 1px 10px;
 }
 
-td.linenum {
+div.gvc_block td.linenum {
 	text-align: right;
 	color: #6B748C;
 	background: #F8F9FC;
@@ -78,16 +94,16 @@ td.linenum {
 	padding: 2px 6px 0px 0px;
 }
 
-td.minusline {
+div.gvc_block td.minusline {
 	background: #ffd0d0;
 }
 
-td.plusline {
+div.gvc_block td.plusline {
 	background: #d0ffd0;
 }
 
 
-div.filelinks {
+div.gvc_block div.filelinks {
 	width: 1400px;
 	background: white;
 	margin: 16px 16px 0px 16px;
@@ -97,12 +113,12 @@ div.filelinks {
   border-bottom: 1px solid #8C98B8;
 }
 
-div.filelinks a {
+div.gvc_block div.filelinks a {
 	display: block;
 	text-decoration: none;
 	padding: 6px 10px;
 }
 
-div.filelinks a:nth-child(2n) {
+div.gvc_block div.filelinks a:nth-child(2n) {
 	background: #F7F7F7;
 }

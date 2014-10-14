@@ -1,5 +1,5 @@
-if (typeof(g_rendered) == 'undefined') {
-	g_rendered = true;
+if (typeof(g_gpv_rendered) == 'undefined') {
+	g_gpv_rendered = true;
 
 	(function() {
 		var opINS = 0
@@ -347,7 +347,10 @@ if (typeof(g_rendered) == 'undefined') {
 				fileLinks += '<a href="#file-' + j + '">' + files[j] + '</a>'
 			}
 			fileLinks += '</div>'
-			pre.innerHTML = fileLinks + out;
+			var formatDiv = '<div class="gvc_block">' + fileLinks + out + '</div>'
+			var rawDiv = '<div class="gvc_raw">' + pre.innerHTML + '</div>'
+			pre.innerHTML = rawDiv + formatDiv
 		}
+		document.body.classList.add("gvcrendered")
 	})()
 }
