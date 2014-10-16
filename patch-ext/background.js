@@ -66,7 +66,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	chrome.tabs.executeScript(tab.id, {
 		code: "typeof(g_gpv_rendered) == 'undefined'"
 	}, function(res) {
-		if (res[res]) {
+		if (res[0]) {
 			doRender(tab.id)
 		} else {
 			chrome.tabs.executeScript(tab.id, {
