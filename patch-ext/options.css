@@ -61,3 +61,7 @@ img#logo {
   margin-left: 10px;
   margin-top: -90px;
 }
+
+span.small {
+	font-size: 50%;
+}
