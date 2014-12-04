@@ -160,7 +160,7 @@ if (typeof(g_gpv_rendered) == 'undefined') {
       return out
     }
             
-    var parseLine = function(line) {
+    var parseLine = function(line, ctx) {
       if (line == '---') {
         return {
           tp: 'line',
@@ -169,6 +169,18 @@ if (typeof(g_gpv_rendered) == 'undefined') {
       }
   
       var m
+      m = line.match('^@@ -([0-9]+),([0-9]+) [+]([0-9]+),([0-9]+) @@(.*)$')
+      if (m) {
+        return {
+          tp: 'lineinfo',
+          lstart: parseInt(m[1]),
+          lcnt: parseInt(m[2]),
+          rstart: parseInt(m[3]),
+          rcnt: parseInt(m[4]),
+          info: m[5]
+        }
+      }
+    
       m = line.match('^diff .*$')
       if (m) {
         return {
@@ -190,18 +202,30 @@ if (typeof(g_gpv_rendered) == 'undefined') {
           fn: m[1]
         }
       }
-      m = line.match('^@@ -([0-9]+),([0-9]+) [+]([0-9]+),([0-9]+) @@(.*)$')
+    
+      m = line.match('^Subject: (.+)$')
       if (m) {
         return {
-          tp: 'lineinfo',
-          lstart: parseInt(m[1]),
-          lcnt: parseInt(m[2]),
-          rstart: parseInt(m[3]),
-          rcnt: parseInt(m[4]),
-          info: m[5]
+          tp: 'subject',
+          subject: m[1]
+        }
+      }
+      
+      if (!ctx.ready) {
+        return {
+          tp: 'line',
+          line: line
         }
       }
     
+      m = line.match('^ (.*)$')
+      if (m) {
+        return {
+          tp: 'sameline',
+          line: m[1]
+        }
+      }
+      
       m = line.match('^[+](.*)$')
       if (m) {
         return {
@@ -218,26 +242,14 @@ if (typeof(g_gpv_rendered) == 'undefined') {
         }
       }
     
-      m = line.match('^ (.*)$')
-      if (m) {
-        return {
-          tp: 'sameline',
-          line: m[1]
-        }
-      }
-    
-      m = line.match('^Subject: (.+)$')
-      if (m) {
-        return {
-          tp: 'subject',
-          subject: m[1]
-        }
-      }
-    
       return {
         tp: 'line',
         line: line
       }
+    }
+    
+    if (typeof(g_gpv_rendered) != 'undefined') {
+    	g_parseLine = parseLine
     }
   
     var outputLeft
@@ -258,7 +270,7 @@ if (typeof(g_gpv_rendered) == 'undefined') {
       for (var j = 0; j < lines.length; j++) {
         var line = lines[j];
       
-        var info = parseLine(line)
+        var info = parseLine(line, ctx)
       
         if (info.tp == 'plusline') {
           if (ctx.buffered) {
