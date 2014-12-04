@@ -3,9 +3,7 @@
     "short_name": "GPV",
     "description": "Git Patch Viewer",
     "permissions": [
-        "https://*/*",
-        "http://*/*",
-        "file:///*/*",
+        "<all_urls>",
         "tabs"
     ],
     "icons": {
