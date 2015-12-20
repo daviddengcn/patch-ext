@@ -96,8 +96,8 @@ div.gvc_block td.linenum {
 }
 
 div.gvc_block td:not(.linenum) {
-  width: 47%;
-  word-break: break-all;
+	width: 47%;
+	word-break: break-all;
 }
 
 div.gvc_block td.minusline {
