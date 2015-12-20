@@ -31,7 +31,7 @@ div.gvc_block div.plus {
 }
 
 div.gvc_block table {
-	width: 1402px;
+	width: 100%;
 	background: white;
 	margin: 16px 16px 0px 16px;
 	white-space: pre-wrap;
@@ -89,9 +89,15 @@ div.gvc_block td.linenum {
 	background: #F8F9FC;
 	border: 0px 1px 0px 0px;
 	border-right: 1px solid #DDE8EF;
-	width: 45px;
+	width: 3%;
 	font-size: 11px;
 	padding: 2px 6px 0px 0px;
+	word-break: break-all;
+}
+
+div.gvc_block td:not(.linenum) {
+	width: 47%;
+	word-break: break-all;
 }
 
 div.gvc_block td.minusline {
