@@ -5,26 +5,45 @@ if (typeof(g_gpv_rendered) == 'undefined') {
     var opINS = 0
     var opDEL = 1
     var opCHANGE = 2
+    
+    var hasLongLine = false;
+    // line is HTML.
+    function checkLongLine(line) {
+      var text = htmlToText(line);
+      var words = text.split(/\s+/);
+      words.forEach(function(word) {
+        if (word.length > 100) {
+          hasLongLine = true;
+        }
+      });
+    }
   
     var outputOneLine = function(out, line, cls) {
+      checkLongLine(line);
       return out + '<tr class="' + cls + '"><td colspan="4">' + line + '</td></tr>'
     }
     var outputFileStart = function(out, line, idx) {
+      checkLongLine(line);
       return out + '<tr class="filestart"><td colspan="4"><a id="file-' + idx + '"/>' + line + '</td></tr>'
     }
   
     var outputMinus = function(out, num, line) {
+      checkLongLine(line);
       return out + '<tr><td class="linenum">' + num + '</td><td class="minusline">' + line + '</td><td class="linenum"></td><td></td></tr>'
     }
     var outputPlus = function(out, num, line) {
+      checkLongLine(line);
       return out + '<tr><td class="linenum"></td><td></td><td class="linenum">' + num + '</td><td class="plusline">' + line + '</td></tr>'
     }
 
     var outputPair = function(out, lnum, lline, rnum, rline) {
+      checkLongLine(lline);
+      checkLongLine(rline);
       return out + '<tr><td class="linenum">' + lnum + '</td><td class="minusline">' + lline + '</td><td class="linenum">' + rnum + '</td><td class="plusline">' + rline + '</td></tr>'
     }
 
     var outputSame = function(out, lnum, rnum, line) {
+      checkLongLine(line);
       return out + '<tr><td class="linenum">' + lnum + '</td><td>' + line + '</td><td class="linenum">' + rnum + '</td><td>' + line + '</td></tr>'
     }
 
@@ -180,6 +199,28 @@ if (typeof(g_gpv_rendered) == 'undefined') {
           info: m[5]
         }
       }
+      m = line.match('^@@ -([0-9]+) [+]0,0 @@(.*)$')
+      if (m) {
+        return {
+          tp: 'lineinfo',
+          lstart: 1,
+          lcnt: parseInt(m[1]),
+          rstart: 1,
+          rcnt: 0,
+          info: m[2]
+        }
+      }
+      m = line.match('^@@ -0,0 [+]([0-9]+) @@(.*)$')
+      if (m) {
+        return {
+          tp: 'lineinfo',
+          lstart: 1,
+          lcnt: 0,
+          rstart: 1,
+          rcnt: parseInt(m[1]),
+          info: m[2]
+        }
+      }
     
       m = line.match('^diff .*$')
       if (m) {
@@ -252,8 +293,6 @@ if (typeof(g_gpv_rendered) == 'undefined') {
     	g_parseLine = parseLine
     }
   
-    var outputLeft
-  
     var clearCtx = function(out, ctx) {
       return out
     }
@@ -271,6 +310,7 @@ if (typeof(g_gpv_rendered) == 'undefined') {
         var line = lines[j];
       
         var info = parseLine(line, ctx)
+        console.log(info.tp + ": " + line)
       
         if (info.tp == 'plusline') {
           if (ctx.buffered) {
@@ -374,7 +414,11 @@ if (typeof(g_gpv_rendered) == 'undefined') {
         fileLinks += '<a href="#file-' + j + '">' + files[j] + '</a>'
       }
       fileLinks += '</div>'
-      var formatDiv = '<div class="gvc_block">' + fileLinks + out + '</div>'
+      var formatCls = [
+        "gvc_block",
+        hasLongLine ? "table_rel" : "table_fix",
+      ].join(" ");
+      var formatDiv = '<div class="' + formatCls + '">' + fileLinks + out + '</div>'
       var rawDiv = '<div class="gvc_raw">' + pre.innerHTML + '</div>'
       pre.innerHTML = rawDiv + formatDiv
     }

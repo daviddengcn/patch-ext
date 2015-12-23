@@ -1,0 +1,242 @@
+Index: dev-tools/maven/pom.xml.template
+===================================================================
+--- dev-tools/maven/pom.xml.template	(revision 1470593)
++++ dev-tools/maven/pom.xml.template	(working copy)
+@@ -44,7 +44,7 @@
+     <base.specification.version>5.0.0</base.specification.version>
+     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+     <java.compat.version>1.7</java.compat.version>
+-    <jetty.version>8.1.8.v20121106</jetty.version>
++    <jetty.version>8.1.10.v20130312</jetty.version>
+     <slf4j.version>1.6.6</slf4j.version>
+     <log4j.version>1.2.16</log4j.version>
+     <tika.version>1.3</tika.version>
+Index: solr/licenses/jetty-server-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-server-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-server-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-61e7c2d0cb168d82696f8fabb8c4da834d736e78
+Index: solr/licenses/jetty-continuation-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-continuation-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-continuation-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-a237d7057c35ae73b821b0f601746dc9a578c361
+Index: solr/licenses/jetty-security-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-security-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-security-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++a386e7f0a8b9157b99a2f29a6deac61e007a2b9b
+
+Property changes on: solr/licenses/jetty-security-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-io-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-io-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-io-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++e829c768f2b9de5d9fae3bc0aba3996bd0344f56
+
+Property changes on: solr/licenses/jetty-io-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-xml-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-xml-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-xml-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-1f03630eea10f58899442af3626ac0aba33d7ea2
+Index: solr/licenses/jetty-jmx-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-jmx-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-jmx-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++6e48870e2af2caf2a77751eae3a79bfcf6b90a78
+
+Property changes on: solr/licenses/jetty-jmx-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-webapp-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-webapp-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-webapp-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++a3353244b93e895f1ca8f607077f247063470233
+
+Property changes on: solr/licenses/jetty-webapp-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-deploy-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-deploy-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-deploy-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-30672b112c7f72a721d8e92d6b5ba250be57d094
+Index: solr/licenses/jetty-webapp-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-webapp-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-webapp-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-5beadb7635372ed38c543dd82e2e270a409b1ab8
+Index: solr/licenses/jetty-servlet-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-servlet-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-servlet-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-285ea47746e9ab988a8291ea9fd6545b537e0ce9
+Index: solr/licenses/jetty-http-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-http-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-http-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++d9eb53007e04d6338f12f3ded60fad1f7bfcb40e
+
+Property changes on: solr/licenses/jetty-http-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-security-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-security-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-security-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-b3efb0450900cf30932c9acf6e47deb936fac2d7
+Index: solr/licenses/jetty-io-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-io-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-io-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-b413448bb6d474b82bb3d988604d3df988a689e3
+Index: solr/licenses/jetty-http-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-http-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-http-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-5f3f0a4b1dbc4a36f97649c9fee940134fe584ca
+Index: solr/licenses/start.jar.sha1
+===================================================================
+--- solr/licenses/start.jar.sha1	(revision 1470593)
++++ solr/licenses/start.jar.sha1	(working copy)
+@@ -1 +1 @@
+-5f657368cd61ab70babe98bcd6709e199a4829d9
++8e1a37a8daae3f222d957012f826047497466a56
+Index: solr/licenses/jetty-servlet-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-servlet-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-servlet-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++98f8029fe7236e9c66381c04f292b5319f47ca84
+
+Property changes on: solr/licenses/jetty-servlet-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-util-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-util-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-util-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++d198a8ad8ea20b4fb74c781175c48500ec2b8b7a
+
+Property changes on: solr/licenses/jetty-util-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-server-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-server-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-server-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++13ca9587bc1645f8fac89454b15252a2ad5bdcf5
+
+Property changes on: solr/licenses/jetty-server-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-deploy-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-deploy-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-deploy-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++875b96ef84e3b83a40b3aac9e473434d6414a389
+
+Property changes on: solr/licenses/jetty-deploy-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-util-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-util-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-util-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-03174e8d53033e3c4d350eba3112efdc170b40dc
+Index: solr/licenses/jetty-xml-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-xml-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-xml-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++96eb17dd4265732b0cb9cd15e36f83633832dd65
+
+Property changes on: solr/licenses/jetty-xml-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/licenses/jetty-jmx-8.1.8.v20121106.jar.sha1
+===================================================================
+--- solr/licenses/jetty-jmx-8.1.8.v20121106.jar.sha1	(revision 1470593)
++++ solr/licenses/jetty-jmx-8.1.8.v20121106.jar.sha1	(working copy)
+@@ -1 +0,0 @@
+-a798ea58162ac462657a21497c84c76a57f20d4f
+Index: solr/licenses/jetty-continuation-8.1.10.v20130312.jar.sha1
+===================================================================
+--- solr/licenses/jetty-continuation-8.1.10.v20130312.jar.sha1	(revision 0)
++++ solr/licenses/jetty-continuation-8.1.10.v20130312.jar.sha1	(working copy)
+@@ -0,0 +1 @@
++c0e26574ddcac7a86486f19a8b3782657acfd961
+
+Property changes on: solr/licenses/jetty-continuation-8.1.10.v20130312.jar.sha1
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: solr/example/ivy.xml
+===================================================================
+--- solr/example/ivy.xml	(revision 1470593)
++++ solr/example/ivy.xml	(working copy)
+@@ -17,7 +17,7 @@
+    under the License.    
+ -->
+ <!DOCTYPE ivy-module [
+-  <!ENTITY jetty.version "8.1.8.v20121106">
++  <!ENTITY jetty.version "8.1.10.v20130312">
+ ]>
+ <ivy-module version="2.0">
+     <info organisation="org.apache.solr" module="example"/>

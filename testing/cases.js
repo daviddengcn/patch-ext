@@ -19,6 +19,8 @@ test("parseLine basic", function() {
     'minusfile', '--- a/pom.xml',
     'plusfile', '+++ b/pom.xml',
     'lineinfo', '@@ -265,6 +265,24 @@',
+    'lineinfo', '@@ -0,0 +1 @@',
+    'lineinfo', '@@ -1 +0,0 @@',
     'sameline', '         <artifactId>maven-enforcer-plugin</artifactId>',
     'plusline', '+            <id>validate_java_and_maven_version</id>',
     'minusline', '-          <version>1.2</version>',

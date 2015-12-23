@@ -31,14 +31,21 @@ div.gvc_block div.plus {
 }
 
 div.gvc_block table {
-	width: 1402px;
 	background: white;
 	margin: 16px 16px 0px 16px;
 	white-space: pre-wrap;
 	border-collapse: collapse;
 	border: 1px solid #BFCFDA;
-  border-bottom: 1px solid #8C98B8;
+    border-bottom: 1px solid #8C98B8;
 	font: 10px "Menlo", "Consolas", "Monaco", monospace;
+}
+
+div.table_fix table {
+	width: 1402px;
+}
+
+div.table_rel table {
+	width: 100%;
 }
 
 div.gvc_block tr.linenums {
@@ -89,9 +96,21 @@ div.gvc_block td.linenum {
 	background: #F8F9FC;
 	border: 0px 1px 0px 0px;
 	border-right: 1px solid #DDE8EF;
-	width: 45px;
 	font-size: 11px;
 	padding: 2px 6px 0px 0px;
+}
+
+div.table_fix td.linenum {
+	width: 45px;
+}
+
+div.table_rel td.linenum {
+	width: 3%;
+}
+
+div.table_rel td:not(.linenum) {
+    width: 47%;
+    word-break: break-all;
 }
 
 div.gvc_block td.minusline {
