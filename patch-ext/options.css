@@ -1,5 +1,5 @@
 body {
-  font-size: 14px;
+  font-size: 16px;
   color: black;
   background-color: #eee;
   text-align: center;
@@ -63,5 +63,6 @@ img#logo {
 }
 
 span.small {
-	font-size: 50%;
+	font-size: 70%;
+	color: gray;
 }
