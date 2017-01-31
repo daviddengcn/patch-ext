@@ -4,7 +4,13 @@ function load() {
 	if (!str) {
 		str = [
 			"https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]patch",
-			"https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]txt"
+			"https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]txt",
+			"https://github.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
+			"https://github.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
+			"https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
+			"https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
+			"https://patch-diff.githubusercontent.com/raw/.*[.]patch",
+			"https://patch-diff.githubusercontent.com/raw/.*[.]diff"
 		].join("\n")
 	}
 	g_patterns = str.split("\n")
