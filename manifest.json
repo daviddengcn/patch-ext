@@ -11,8 +11,7 @@
         "128":"patch-ext-128x128.png"
     },
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "scripts": ["background.js"]
     },
     "options_ui": {
 	"page": "options.html"
