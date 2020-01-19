@@ -1,24 +1,36 @@
 {
-    "name": "Git Patch Viewer",
-    "short_name": "GPV",
-    "description": "Git Patch Viewer",
-    "permissions": [
-        "<all_urls>",
-        "tabs"
-    ],
-    "icons": {
-        "48":"patch-ext-48x48.png",
-        "128":"patch-ext-128x128.png"
+  "name": "Git Patch Viewer",
+  "short_name": "GPV",
+  "description": "Git Patch Viewer",
+  "permissions": ["<all_urls>", "tabs"],
+  "icons": {
+    "48": "icons/patch-ext-48.png",
+    "128": "icons/patch-ext-128.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "browser_action": {
+    "default-icons": {
+      "48": "icons/patch-ext-48.png",
+      "128": "icons/patch-ext-128.png"
     },
-    "background": {
-        "scripts": ["background.js"]
-    },
-    "options_ui": {
-	"page": "options.html"
-	    },
-    "browser_action": {
-        "default_icon": "patch-ext-48x48.png"
-    },
-    "version": "2.0",
-    "manifest_version": 2
+    "theme_icons": [
+      {
+        "dark": "icons/patch-ext-48.png",
+        "light": "icons/patch-ext-48-light.png",
+        "size": 48
+      },
+      {
+        "dark": "icons/patch-ext-128.png",
+        "light": "icons/patch-ext-128-light.png",
+        "size": 128
+      }
+    ]
+  },
+  "version": "2.0.1",
+  "manifest_version": 2
 }
