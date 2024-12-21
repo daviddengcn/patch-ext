@@ -1,5 +1,9 @@
+:root {
+  color-scheme: light dark;
+}
+
 body.gvcrendered {
-	background: #ebecee;
+	background: light-dark(#ebecee, #141311);
 }
 
 body div.gvc_block {
@@ -19,24 +23,24 @@ body.gvcrendered div.gvc_raw {
 }
 
 div.gvc_block span.plus {
-	background: #afa;
+	background: light-dark(#afa, #5a5);
 }
 
 div.gvc_block span.minus {
-  background: #faa;
+	background: light-dark(#faa, #a55);
 }
 
 div.gvc_block div.plus {
-	background: #afa;
+	background: light-dark(#afa, #5a5);
 }
 
 div.gvc_block table {
-	background: white;
+	background: light-dark(white, black);
 	margin: 16px 16px 0px 16px;
 	white-space: pre-wrap;
 	border-collapse: collapse;
-	border: 1px solid #BFCFDA;
-    border-bottom: 1px solid #8C98B8;
+	border: 1px solid light-dark(#BFCFDA, #403025);
+        border-bottom: 1px solid light-dark(#8C98B8, #736747);
 	font: 10px "Menlo", "Consolas", "Monaco", monospace;
 }
 
@@ -49,10 +53,10 @@ div.table_rel table {
 }
 
 div.gvc_block tr.linenums {
-	color: #6B748C;
-	background: #F8F9FC;
-	border-top: 1px solid #DDE8EF;
-	border-bottom: 1px solid #DDE8EF;
+	color: light-dark(#6B748C, #948b73);
+	background: light-dark(#F8F9FC, #070603);
+	border-top: 1px solid light-dark(#DDE8EF, #221710);
+	border-bottom: 1px solid light-dark(#DDE8EF, #221710);
 }
 
 div.gvc_block tr.linenums td {
@@ -63,7 +67,7 @@ div.gvc_block tr.linenums td {
 }
 
 div.gvc_block tr.filestart td {
-  border-top: 1px solid #BFCFDA;
+  border-top: 1px solid light-dark(#BFCFDA, #403025);
 	padding: 20px 1px 12px 10px;
 	font-size: 14px;
 	font-weight: bold;
@@ -74,9 +78,9 @@ div.gvc_block tr.subject {
 }
 
 div.gvc_block tr.subject td {
-	color: #6B748C;
+	color: light-dark(#6B748C, #948b73);
 	padding: 12px 5px 12px 12px;
-	background: #e0e3ec;
+	background: light-dark(#e0e3ec, #1f1c13);
 	font-size: 15px;
 	font-weight: bold;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -92,10 +96,10 @@ div.gvc_block tr.rawline td {
 
 div.gvc_block td.linenum {
 	text-align: right;
-	color: #6B748C;
-	background: #F8F9FC;
+	color: light-dark(#6B748C, #948b73);
+	background: light-dark(#F8F9FC, #070603);
 	border: 0px 1px 0px 0px;
-	border-right: 1px solid #DDE8EF;
+	border-right: 1px solid light-dark(#DDE8EF, #221710);
 	font-size: 11px;
 	padding: 2px 6px 0px 0px;
 }
@@ -114,22 +118,22 @@ div.table_rel td:not(.linenum) {
 }
 
 div.gvc_block td.minusline {
-	background: #ffd0d0;
+	background: light-dark(#ffd0d0, #5e2f2f);
 }
 
 div.gvc_block td.plusline {
-	background: #d0ffd0;
+	background: light-dark(#d0ffd0, #2f5e2f);
 }
 
 
 div.gvc_block div.filelinks {
 	width: 1400px;
-	background: white;
+	background: light-dark(white, black);
 	margin: 16px 16px 0px 16px;
 	font-size: 12px;
-	color: #92969D;
-  border: 1px solid #BFCFDA;
-  border-bottom: 1px solid #8C98B8;
+	color: light-dark(#92969D, #6d6962);
+  border: 1px solid light-dark(#BFCFDA, #403025);
+  border-bottom: 1px solid light-dark(#8C98B8, #736747);
 }
 
 div.gvc_block div.filelinks a {
@@ -139,5 +143,5 @@ div.gvc_block div.filelinks a {
 }
 
 div.gvc_block div.filelinks a:nth-child(2n) {
-	background: #F7F7F7;
+	background: light-dark(#F7F7F7, #080808);
 }
