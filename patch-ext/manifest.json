@@ -1,23 +1,28 @@
 {
-    "name": "Git Patch Viewer",
-    "short_name": "GPV",
-    "description": "Git Patch Viewer",
-    "permissions": [
-        "<all_urls>",
-        "tabs"
-    ],
+  "manifest_version": 3,
+  "version": "1.9",
+  "name": "Git Patch Viewer",
+  "short_name": "GPV",
+  "description": "Show Git patch in a comprehensive way.",
+  "permissions": [
+    "activeTab", "scripting", "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "file://*/*"
+  ],
     "icons": {
         "48":"patch-ext-48x48.png",
         "128":"patch-ext-128x128.png"
     },
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-    },
-    "options_page": "options.html",
-    "browser_action": {
-        "default_icon": "patch-ext-48x48.png"
-    },
-    "version": "1.8",
-    "manifest_version": 2.1
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "action": {
+    "default_icon": "patch-ext-48x48.png"
+  }
 }

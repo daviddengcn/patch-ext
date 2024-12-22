@@ -310,7 +310,6 @@ if (typeof(g_gpv_rendered) == 'undefined') {
         var line = lines[j];
       
         var info = parseLine(line, ctx)
-        console.log(info.tp + ": " + line)
       
         if (info.tp == 'plusline') {
           if (ctx.buffered) {
@@ -403,7 +402,6 @@ if (typeof(g_gpv_rendered) == 'undefined') {
           }
         }
         out = outputOneLine(out, line, 'rawline')
-        console.log(JSON.stringify(info))
       }
       if (subject) {
         out = outputOneLine('', subject, 'subject') + out
