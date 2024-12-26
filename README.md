@@ -14,9 +14,11 @@ Features
 Screenshots
 -----------
 
-![Git Patch Viewer](https://raw.githubusercontent.com/daviddengcn/patch-ext/master/dist/screenshot-1.png "Git Patch Viewer")
+![Git Patch Viewer](https://raw.githubusercontent.com/daviddengcn/patch-ext/master/dist/screenshot-light.png "Git Patch Viewer")
 
-![Git Patch Viewer](https://raw.githubusercontent.com/daviddengcn/patch-ext/master/dist/screenshot-2.png "Git Patch Viewer")
+![Git Patch Viewer](https://raw.githubusercontent.com/daviddengcn/patch-ext/master/dist/screenshot-dark.png "Git Patch Viewer")
+
+![Git Patch Viewer](https://raw.githubusercontent.com/daviddengcn/patch-ext/master/dist/screenshot-options.png "Git Patch Viewer")
 
 License
 -------
