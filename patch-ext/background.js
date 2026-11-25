@@ -1,7 +1,7 @@
-var g_patterns = [];
+let g_patterns = [];
 (() => {
   chrome.storage.local.get(['url_patterns']).then((localStorage) => {
-    var str = localStorage['url_patterns'];
+    let str = localStorage['url_patterns'];
     if (!str) {
       str = [
         "https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]patch",
@@ -48,7 +48,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 });
 
-var doRender = function(tab) {
+const doRender = function(tab) {
   chrome.scripting.executeScript({
     target: {tabId: tab.id},
     files: ['cs.js']
