@@ -30,6 +30,9 @@ async function shouldInject(url) {
   }
   await patternsReady;
   for (const pattern of g_patterns) {
+    if (!pattern.trim()) {
+      continue;
+    }
     if (url.match(pattern)) {
       return true;
     }
