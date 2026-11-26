@@ -33,8 +33,12 @@ async function shouldInject(url) {
     if (!pattern.trim()) {
       continue;
     }
-    if (url.match(pattern)) {
-      return true;
+    try {
+      if (new RegExp(pattern).test(url)) {
+        return true;
+      }
+    } catch (e) {
+      console.warn('Invalid URL pattern:', pattern, e);
     }
   }
   return false;
