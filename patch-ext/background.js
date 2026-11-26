@@ -1,21 +1,21 @@
 let g_patterns = [];
-(() => {
-  chrome.storage.local.get(['url_patterns']).then((localStorage) => {
-    let str = localStorage['url_patterns'];
-    if (!str) {
-      str = [
-        "https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]patch",
-	"https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]txt",
-	"https://github.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
-	"https://github.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
-	"https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
-	"https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
-	"https://patch-diff.githubusercontent.com/raw/.*[.]patch",
-	"https://patch-diff.githubusercontent.com/raw/.*[.]diff"
-      ].join("\n");
-    }
-    g_patterns = str.split("\n");
-  });
+const patternsReady = (async () => {
+  const localStorage = await chrome.storage.local.get(['url_patterns']);
+  let str = localStorage['url_patterns'];
+  if (!str) {
+    str = [
+      "https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]patch",
+      "https://issues[.]apache[.]org/jira/secure/attachment/[^/]*/.*[.]txt",
+      "https://github.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
+      "https://github.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
+      "https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]patch",
+      "https://gitlab.com/[^/]*/[^/]*/commit/[^/]*[.]diff",
+      "https://patch-diff.githubusercontent.com/raw/.*[.]patch",
+      "https://patch-diff.githubusercontent.com/raw/.*[.]diff"
+    ].join("\n");
+  }
+  g_patterns = str.split("\n");
+  return g_patterns;
 })();
 
 function save() {
@@ -24,10 +24,11 @@ function save() {
   });
 }
 
-function shouldInject(url) {
+async function shouldInject(url) {
   if (!url) {
     return false;
   }
+  await patternsReady;
   for (const pattern of g_patterns) {
     if (url.match(pattern)) {
       return true;
@@ -38,13 +39,19 @@ function shouldInject(url) {
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.set_options) {
-    g_patterns = msg.options.patterns;
-    save();
-    return;
+    patternsReady
+      .then(() => {
+        g_patterns = msg.options.patterns;
+        return save();
+      })
+      .then(() => sendResponse({ ok: true }));
+    return true;
   }
   if (msg.get_options) {
-    sendResponse({ patterns: g_patterns });
-    return;
+    patternsReady.then((patterns) => {
+      sendResponse({ patterns });
+    });
+    return true;
   }
 });
 
@@ -59,11 +66,9 @@ const doRender = function(tab) {
   });
 }
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status == "complete") {
-    if (shouldInject(tab.url)) {
-      doRender(tab);
-    }
+chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+  if (changeInfo.status == "complete" && await shouldInject(tab.url)) {
+    doRender(tab);
   }
 });
 
